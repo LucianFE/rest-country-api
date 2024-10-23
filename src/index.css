@@ -1,0 +1,347 @@
+/* Font */
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,300,600,800&display=swap");
+
+/* Reset CSS */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+html:focus-within {
+  scroll-behavior: smooth;
+}
+html,
+body {
+  height: 100%;
+}
+
+body {
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  color: inherit;
+}
+ul,
+ol {
+  list-style: none;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  border: none;
+  outline: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:root {
+  --background: hsl(207, 26%, 17%);
+  --header-bg: hsl(209, 23%, 22%);
+  --text-clr: hsl(0, 0%, 100%);
+  --mode-input: hsl(0, 0%, 100%);
+  --mode-elements: hsl(209, 23%, 22%);
+
+  --ff: "Nunito Sans", sans-serif;
+  --radius: 5px;
+  --radius-m: 7px;
+}
+
+.light-mode {
+  --background: hsl(0, 0%, 98%);
+  --header-bg: hsl(0, 0%, 100%);
+  --text-clr: hsl(200, 15%, 8%);
+  --mode-input: hsl(0, 0%, 52%);
+  --mode-elements: hsl(0, 0%, 100%);
+}
+body {
+  font-family: var(--ff);
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+h1 {
+  font-size: 1rem;
+}
+
+p {
+  font-weight: 600;
+}
+p span {
+  font-weight: 500;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.main-content {
+  min-height: 100dvh;
+  background: var(--background);
+  color: var(--text-clr);
+}
+
+.header {
+  background-color: var(--header-bg);
+  padding-block: 2rem;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.13);
+}
+.header-content-wrapper {
+  width: 90%;
+  margin-inline: auto;
+  justify-content: space-between;
+}
+.toggle-theme {
+  background-color: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.toggle-theme span {
+  gap: 0.5rem;
+}
+
+.tools-container {
+  flex-direction: column;
+  gap: 2rem;
+  align-items: start;
+  margin-top: 1.5rem;
+  width: 90%;
+  margin-inline: auto;
+}
+
+@media screen and (min-width: 786px) {
+  .tools-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* Search */
+.search {
+  width: 100%;
+  max-width: 450px;
+  background-color: var(--mode-elements);
+  border-radius: var(--radius);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.13);
+}
+
+input[type="search"] {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--mode-elements);
+  color: var(--mode-input);
+  border-radius: var(--radius);
+}
+input::placeholder {
+  color: var(--mode-input);
+}
+input[type="search"]:-webkit-autofill,
+input[type="search"]:-webkit-autofill:hover,
+input[type="search"]:-webkit-autofill:focus,
+input[type="search"]:-webkit-autofill:active,
+input:-internal-autofill-selected {
+  background-color: var(--mode-elements) !important;
+  color: var(--mode-input) !important;
+}
+.search-btn {
+  color: inherit;
+  background-color: transparent;
+  padding-left: 2rem;
+  font-size: 2rem;
+}
+
+/* Filters */
+
+.select-container {
+  position: relative;
+  width: 40%;
+  max-width: 200px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.13);
+  cursor: pointer;
+}
+.selected-option,
+.options-list {
+  background-color: var(--mode-elements);
+  color: inherit;
+  width: 100%;
+  padding: 1rem;
+  border-radius: var(--radius);
+}
+.selected-option {
+  justify-content: space-between;
+}
+.options-list * + * {
+  margin-top: 1rem;
+}
+.options-list {
+  position: absolute;
+  top: 3.5rem;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.6);
+}
+.option {
+  cursor: pointer;
+}
+.option:hover {
+  color: hsl(0, 3%, 76%);
+}
+
+.country-list {
+  display: grid;
+  width: 90%;
+  margin-inline: auto;
+  margin-top: 5rem;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+}
+@media screen and (min-width: 900px) {
+  .country-list {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+.card {
+  background: var(--header-bg);
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  border-radius: var(--radius-m);
+  width: 100%;
+  max-width: 450px;
+  margin-inline: auto;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+.card img {
+  border-radius: var(--radius) var(--radius) 0 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.country-info {
+  padding: 2rem;
+  align-self: center;
+}
+.country-info h2 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+}
+p {
+  font-size: 0.875rem;
+}
+p:not(:first-child) {
+  margin-top: 0.8rem;
+}
+
+/* details */
+.details {
+  padding-bottom: 3rem;
+}
+.details-container {
+  width: 90%;
+  max-width: 366px;
+  margin-inline: auto;
+  margin-top: 3rem;
+}
+
+/* Btn */
+.btn {
+  background-color: var(--header-bg);
+  color: inherit;
+  padding: 0.5rem 2rem;
+  gap: 0.5rem;
+  border-radius: var(--radius);
+  box-shadow: 0 0 15px 5px hsla(0, 0%, 0%, 0.2);
+  cursor: pointer;
+}
+
+.country-details {
+  margin-top: 4rem;
+  display: grid;
+}
+
+.details-data {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+.country-all-details h2 {
+  margin-block: 3rem 2rem;
+}
+.details-data .btn {
+  font-size: 0.875rem;
+  padding-inline: 1.8rem;
+}
+.borders {
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.borders p {
+  width: 100%;
+}
+
+@media screen and (min-width: 1024px) {
+  .details-container {
+    max-width: 1840px;
+  }
+  .country-details {
+    grid-template-columns: 1fr 1fr;
+    gap: 8rem;
+  }
+  .country-all-details {
+    align-self: center;
+  }
+  .details-data {
+    grid-template-columns: 1fr 1fr;
+  }
+  .borders p {
+    width: max-content;
+  }
+}
